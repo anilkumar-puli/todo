@@ -16,7 +16,7 @@ Head "Unzip Downloaded Archive"
 #Stat $?
 
 Head "Update Nginx Configuration"
-sed -i -e "s/var/www/html/todo/frontend/dist /var/www/html/*" /etc/nginx/sites-available/default
+sed -i -e "s/var/www/html/todo/frontend/dist /var/www/html" /etc/nginx/sites-available/default
 stat $?
 
 
