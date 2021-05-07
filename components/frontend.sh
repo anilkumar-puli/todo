@@ -16,10 +16,10 @@ cd /var/www/html && unzip -o /tmp/frontend.zip &>>$LOG && mv frontend-main/* . &
 Stat $?
 
 Head "Update Nginx Configuration"
-echo "var/www/html" | sed 's/var/www/html/todo/frontend/dist'
-#sed -i -e "s/var/www/html/todo/frontend/dist var/www/html" /etc/nginx/sites-available/default
+#echo "var/www/html/" | sed 's/var/www/html/todo/frontend/dist'
+sed -i -e "s/var/www/html/todo/frontend/dist var/www/html" /etc/nginx/sites-available/default
 stat $?
-
+git
 
 Head "Restart Nginx Service"
 systemctl restart nginx
