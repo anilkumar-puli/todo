@@ -12,7 +12,7 @@ DOWNLOAD_COMPONENT
 
 
 Head "Unzip Downloaded Archive"
-unzip -o /tmp/frontend.zip &>>$LOG && cd /var/www/html && rm -rf /var/www/html/*  && mv /tmp/frontend-main/* . &&  rm -rf frontend-main README.md
+cd /var/www/html && unzip -o /tmp/frontend.zip &>>$LOG && mv frontend-main/* . && rm -rf frontend-main README.md
 Stat $?
 
 Head "Update Nginx Configuration"
