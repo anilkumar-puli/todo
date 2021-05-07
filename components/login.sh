@@ -16,7 +16,7 @@ fi
 DOWNLOAD_COMPONENT
 
 Head "Extract Downloaded Archive"
-cd /home/loginuser && unzip -o /tmp/login.zip &>>$LOG && mv login-main login && chown loginuser:loginuser /home/loginuser -R &&  cd /home/loginuser/login && mkdir go && cd go && mkdir src && export GOPATH=/go && go get &&
+cd /home/loginuser && unzip -o /tmp/login.zip &>>$LOG && mv login-main login && chown loginuser:loginuser /home/loginuser -R &&  cd /home/loginuser/login && mkdir go && cd go && mkdir src && cd src && export GOPATH=/go && go get &&
 go build 
 Stat $?
 
@@ -27,4 +27,4 @@ Stat $?
 
 Head "Setup SystemD Service"
 mv /home/loginuser/login/systemd.service /etc/systemd/system/login.service && systemctl daemon-reload && systemctl start login && systemctl enable login &>>$LOG
-Stat $?
+Stat $?hello
