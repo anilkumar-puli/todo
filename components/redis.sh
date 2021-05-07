@@ -5,7 +5,7 @@ OS_PREREQ
 
 Head "Install Redis"
 apt install redis-server -y &>>$LOG
-Stat $?
+Stat $?ls
 
 Head "Update Redis Listen Address"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis/redis.conf
