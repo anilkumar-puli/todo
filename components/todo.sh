@@ -4,29 +4,20 @@ source components/common.sh
 
 OS_PREREQ
 
-Head "Install Maven"
-apt install maven -y &>>$LOG
+Head "Installing npm"
+apt install npm -y &>>$LOG
 Stat $?
-
-
-Head "Adding RoboShop User"
-id roboshop &>>$LOG
-if [ $? -ne 0 ]; then
-  useradd -m -s /bin/bash roboshop
-  Stat $?
-fi
 
 DOWNLOAD_COMPONENT
 
-Head "Extract Downloaded Archive"
-cd /home/roboshop && rm -rf shipping && unzip -o /tmp/shipping.zip &>>$LOG && mv shipping-main shipping && cd /home/roboshop/shipping &&  mvn clean package  &>>$LOG && chown roboshop:roboshop /home/roboshop -R && mv target/shipping-1.0.jar shipping.jar  &>>$LOG
+Head "extracting Downloaded Archive"
+cd /home/ubuntu && rm -rf todo && unzip -o /tmp/todo.zip &>>$LOG && mv todo-main todo && cd /home/ubuntu/todo && npm install && npm start
 Stat $?
 
 Head "Update EndPoints in Service File"
-sed -i -e "s/CARTENDPOINT/cart.zsdevops01.online/" -e "s/DBHOST/mysql.zsdevops01.online/" /home/roboshop/shipping/systemd.service
+sed -i -e "s/user_endpoint/todo.anilzs.ml/" /home/ubuntu/todo/systemd.service
 Stat $?
 
-
 Head "Setup SystemD Service"
-mv /home/roboshop/shipping/systemd.service /etc/systemd/system/shipping.service && systemctl daemon-reload && systemctl start shipping && systemctl enable shipping &>>$LOG
+mv /home/ubuntu/todo/systemd.service /etc/systemd/system/todo.service && systemctl daemon-reload && systemctl start todo && systemctl enable todo &>>$LOG
 Stat $?
