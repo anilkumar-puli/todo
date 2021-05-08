@@ -7,7 +7,6 @@ OS_PREREQ
 Head "Install Maven and java"
 apt install openjdk-8-jdk -y &>>$LOG
 apt install maven -y &>>$LOG
-mvn package &>>$LOG
 Stat $?
 
 DOWNLOAD_COMPONENT
