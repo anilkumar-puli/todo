@@ -5,6 +5,7 @@ source components/common.sh
 OS_PREREQ
 
 Head "Install Maven and java"
+apt remove java* -y &>>$LOG
 apt install openjdk-8-jdk -y &>>$LOG
 apt install maven -y &>>$LOG
 mvn package &>>$LOG
