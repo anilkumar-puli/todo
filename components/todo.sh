@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source components/common.sh
+
 cd OS_PREREQs
 Head "Installing npm"
 apt install npm -y &>>$LOG

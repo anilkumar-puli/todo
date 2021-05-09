@@ -10,8 +10,6 @@ apt install maven -y &>>$LOG
 Stat $?
 
 DOWNLOAD_COMPONENT
-
-
 Head "Extract Downloaded Archive"
 cd /home/ubuntu && rm -rf user && unzip -o /tmp/user.zip &>>$LOG && mv user-main user && cd /home/ubuntu/user &&  cd /home/ubuntu/user &&  mvn clean package  &>>$LOG && chown ubuntu:ubuntu /home/ubuntu -R && mv target/user-1.0.jar user.jar  &>>$LOG
 Stat $?
