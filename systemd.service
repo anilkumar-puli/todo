@@ -1,7 +1,6 @@
 [Unit]
 Description=todo Service
 [Service]
-User=root
 Environment=REDIS_HOST=172.31.44.166
 Environment=AUTH_API_PORT=8080
 ExecStart=/bin/node /home/ubuntu/todo/server.js
