@@ -1,6 +1,6 @@
 @Library('todo') _
 
-roboshop (
+todo (
         COMPONENT             : 'todo',
         PROJECT_NAME          : "todo",
         SLAVE_LABEL           : "NODEJS",
